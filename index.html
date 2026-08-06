@@ -1,71 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitoria RHEP</title>
-
 <style>
+:root {
+    --primary-color: #1f4e79;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #e1e4e8;
+}
 
 body {
-    font-family: Arial;
-    background:#f5f5f5;
-    margin:40px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 h1 {
-    color:#333;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.update-time {
+    font-size: 0.9rem;
+    color: #666;
+    background: #eef2f7;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
 }
 
 table {
     border-collapse: collapse;
-    width:100%;
-    background:white;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
 }
 
 th {
-    background:#1f4e79;
-    color:white;
-    padding:10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 td {
-    border:1px solid #ddd;
-    padding:8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
 }
 
 .online {
-    background:#d4edda;
-    color:#155724;
-    font-weight:bold;
+    background: #d4edda !important;
+    color: #155724;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
 }
 
 .offline {
-    background:#f8d7da;
-    color:#721c24;
-    font-weight:bold;
+    background: #f8d7da !important;
+    color: #721c24;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
 }
 
-tr:hover {
-    background:#f2f2f2;
-    cursor:pointer;
+tr.has-extrato {
+    cursor: pointer;
 }
 
+tr.has-extrato:hover {
+    background: #f1f5f9;
+}
+
+.custom-tooltip {
+    position: fixed;
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+    max-width: 450px;
+    width: 90%;
+    display: none;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    border-left: 4px solid #38bdf8;
+    box-sizing: border-box;
+}
+
+.custom-tooltip .tooltip-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 6px;
+    color: #38bdf8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-tooltip pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.85rem;
+}
+
+.tooltip-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.4rem;
+    }
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    .custom-tooltip {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+        max-width: 92%;
+    }
+}
 </style>
-
 </head>
-
 <body>
 
-<h1>Monitoria RHEP</h1>
+<div class="container">
+    <header>
+        <h1>Monitoria RHEP</h1>
+        <div class="update-time">Atualizado em: 06/08/2026 13:09:59</div>
+    </header>
 
-<p>Atualizado em: 06/08/2026 12:54:43</p>
+    <div class="table-responsive">
+        <table>
+            <tr>
+<th>DESTINO</th><th>SITUACAO</th><th>EXECUTANDO</th><th>EM_FILA</th></tr><tr><td>ALPF_BAL</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_B88</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_IPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL00</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL01</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL02</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL03</td><td><span class="online">ONLINE</span></td><td></td><td>Emp49 - Fol101 (08/2026) - Exec001 (TOTAL) - 17/08/2026 - 21:00:00</td></tr><tr><td>ALPFOL11</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL23</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL24</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL88</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL90</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL91</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL92</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL93</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>ALPTHI01</td><td><span class="offline">OFFLINE</span></td><td></td><td></td></tr><tr><td>Fgerson</td><td><span class="offline">OFFLINE</span></td><td></td><td></td></tr><tr><td>FOSF_IPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL00</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL01</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL02</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL03</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL11</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL23</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL24</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL90</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL91</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL92</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL93</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_ALE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_BAL</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_B88</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_DAE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_FUN</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_GOV</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_MPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL00</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL01</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL02</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL03</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL11</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL23</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL24</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL90</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL91</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL92</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL93</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_RSF</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TCE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJM</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIBGB01</td><td><span class="offline">OFFLINE</span></td><td></td><td></td></tr><tr><td>GIB1_IPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>GIB2_IPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_BAL</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_B88</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_IPE</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL00</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL01</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL02</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL03</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL11</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL23</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL24</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL88</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL90</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL91</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL92</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL93</td><td><span class="online">ONLINE</span></td><td></td><td></td></tr>        </table>
+    </div>
+</div>
 
-<table>
+<div class="tooltip-backdrop" id="backdrop"></div>
+<div class="custom-tooltip" id="tooltipBox">
+    <div class="tooltip-header">
+        <span>Extrato Detalhado de Execução</span>
+        <span style="cursor:pointer; font-size:1.1rem;" onclick="hideTooltip()">&times;</span>
+    </div>
+    <pre id="tooltipContent"></pre>
+</div>
 
-<tr>
-<th>DESTINO</th><th>SITUACAO</th><th>EXECUTANDO</th><th>EM_FILA</th></tr><tr><td>ALPF_BAL</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPF_B88</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPF_IPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL00</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL01</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL02</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL03</td><td class="online">ONLINE</td><td></td><td>Emp49 - Fol101 (08/2026) - Exec001 (TOTAL) - 17/08/2026 - 21:00:00</td></tr><tr><td>ALPFOL11</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL23</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL24</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL88</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL90</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL91</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL92</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPFOL93</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>ALPTHI01</td><td class="offline">OFFLINE</td><td></td><td></td></tr><tr><td>Fgerson</td><td class="offline">OFFLINE</td><td></td><td></td></tr><tr><td>FOSF_IPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL00</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL01</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL02</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL03</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL11</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL23</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL24</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL90</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL91</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL92</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>FOSFOL93</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_ALE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_BAL</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_B88</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_DAE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_FUN</td><td class="online">ONLINE</td><td></td><td></td></tr><tr title="CONCLUÍDA    | 	EP__FOLHA_1&#10;CONCLUÍDA    | 	GERACAO ELEITOS&#10;CONCLUÍDA    | 	EP__FOLHA00&#10;CONCLUÍDA    | 	EP__FOLHA_2&#10;EM FILA      |	Fase 1&#10;EM FILA      |	Fase 2&#10;EM FILA      |	Fase 3&#10;EM FILA      |	Fase 5&#10;"><td>GIBF_GOV</td><td class="online">ONLINE</td><td>Emp1 - Fol910 (08/2026) - Exec267 ()</td><td></td></tr><tr><td>GIBF_MPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL00</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL01</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL02</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL03</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL11</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL23</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL24</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL90</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL91</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL92</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBFOL93</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_RSF</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_TCE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_TJE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBF_TJM</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIBGB01</td><td class="offline">OFFLINE</td><td></td><td></td></tr><tr><td>GIB1_IPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>GIB2_IPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBF_BAL</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBF_B88</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBF_IPE</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL00</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL01</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL02</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL03</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL11</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL23</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL24</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL88</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL90</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL91</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL92</td><td class="online">ONLINE</td><td></td><td></td></tr><tr><td>HOBFOL93</td><td class="online">ONLINE</td><td></td><td></td></tr>
-</table>
+<script>
+const tooltip = document.getElementById('tooltipBox');
+const backdrop = document.getElementById('backdrop');
+const tooltipContent = document.getElementById('tooltipContent');
+
+document.querySelectorAll('tr.has-extrato').forEach(row => {
+    row.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const texto = this.getAttribute('data-extrato');
+        tooltipContent.textContent = texto;
+        
+        if (window.innerWidth > 768) {
+            const rect = this.getBoundingClientRect();
+            let top = rect.bottom + window.scrollY + 5;
+            let left = rect.left + window.scrollX;
+            
+            if (left + 450 > window.innerWidth) {
+                left = window.innerWidth - 470;
+            }
+            
+            tooltip.style.top = top + 'px';
+            tooltip.style.left = left + 'px';
+            tooltip.style.transform = 'none';
+            backdrop.style.display = 'none';
+        } else {
+            backdrop.style.display = 'block';
+        }
+        
+        tooltip.style.display = 'block';
+    });
+});
+
+function hideTooltip() {
+    tooltip.style.display = 'none';
+    backdrop.style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+    if (!tooltip.contains(e.target)) {
+        hideTooltip();
+    }
+});
+
+backdrop.addEventListener('click', hideTooltip);
+</script>
 
 </body>
 </html>
