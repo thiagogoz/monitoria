@@ -4,39 +4,240 @@
 <head>
 <meta charset="UTF-8">
 <title>Monitoria RHEP</title>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600&display=swap');
-    body { font-family: 'Inter', sans-serif; background:#f4f7f9; margin:40px; color: #333; }
-    h1 { color:#1f4e79; margin-bottom: 20px; }
-    table { border-collapse: separate; border-spacing: 0; width:100%; background:white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    th { background:#1f4e79; color:white; padding:15px; text-align: left; font-weight: 600; }
-    td { border-bottom: 1px solid #eee; padding: 12px 15px; }
-    tr:last-child td { border-bottom: none; }
-    .has-tip { position: relative; cursor: help; border-bottom: 1px dotted #1f4e79; }
-    .tooltip-content { font-family: 'Fira Code', monospace; font-size: 12px; white-space: pre; background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 6px; position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); visibility: hidden; opacity: 0; transition: opacity 0.2s; z-index: 10; box-shadow: 0 4px 15px rgba(0,0,0,0.3); pointer-events: none; }
-    .has-tip:hover .tooltip-content { visibility: visible; opacity: 1; }
-    .status-badge { padding: 4px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600; display: inline-flex; align-items: center; }
-    .online { background: #d4edda; color: #155724; }
-    .offline { background: #f8d7da; color: #721c24; }
-    .icon { margin-right: 6px; }
-    tr:hover { background:#fcfcfc; }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background:#f4f7f9;
+        margin:40px;
+        color:#333;
+    }
+
+    h1 {
+        color:#1f4e79;
+        margin-bottom:10px;
+    }
+
+    .atualizado {
+        margin-bottom:20px;
+        color:#666;
+    }
+
+    .tabs {
+        display:flex;
+        gap:6px;
+        margin-bottom:0;
+        border-bottom:2px solid #1f4e79;
+    }
+
+    .tab-button {
+        border:none;
+        background:#dfe7ed;
+        color:#1f4e79;
+        padding:12px 22px;
+        font-size:14px;
+        font-weight:600;
+        border-radius:8px 8px 0 0;
+        cursor:pointer;
+    }
+
+    .tab-button:hover {
+        background:#cbd9e3;
+    }
+
+    .tab-button.active {
+        background:#1f4e79;
+        color:white;
+    }
+
+    .tab-content {
+        display:none;
+    }
+
+    .tab-content.active {
+        display:block;
+    }
+
+    .table-container {
+        overflow-x:auto;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width:100%;
+        background:white;
+        border-radius:0 8px 8px 8px;
+        overflow:hidden;
+        box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    th {
+        background:#1f4e79;
+        color:white;
+        padding:15px;
+        text-align:left;
+        font-weight:600;
+        white-space:nowrap;
+    }
+
+    td {
+        border-bottom:1px solid #eee;
+        padding:12px 15px;
+        vertical-align:top;
+    }
+
+    tr:last-child td {
+        border-bottom:none;
+    }
+
+    tr:hover {
+        background:#fcfcfc;
+    }
+
+    .has-tip {
+        position:relative;
+        cursor:help;
+        border-bottom:1px dotted #1f4e79;
+    }
+
+    .tooltip-content {
+        font-family:'Fira Code', monospace;
+        font-size:12px;
+        line-height:1.5;
+        white-space:pre; /* Alterado de pre-wrap para pre para evitar quebra de linha */
+        min-width:650px; /* Aumentado para dar mais largura ao hint */
+        max-width:900px;
+        max-height:400px;
+        overflow:auto;
+        text-align:left;
+        background:#2d3436;
+        color:#dfe6e9;
+        padding:15px;
+        border-radius:6px;
+        position:absolute;
+        bottom:125%;
+        left:50%;
+        transform:translateX(-50%);
+        visibility:hidden;
+        opacity:0;
+        transition:opacity 0.2s;
+        z-index:100;
+        box-shadow:0 4px 15px rgba(0,0,0,0.3);
+        pointer-events:none;
+    }
+
+    .has-tip:hover .tooltip-content {
+        visibility:visible;
+        opacity:1;
+    }
+
+    .status-badge {
+        padding:4px 10px;
+        border-radius:12px;
+        font-size:0.85em;
+        font-weight:600;
+        display:inline-flex;
+        align-items:center;
+    }
+
+    .online {
+        background:#d4edda;
+        color:#155724;
+    }
+
+    .offline {
+        background:#f8d7da;
+        color:#721c24;
+    }
+
+    .icon {
+        margin-right:6px;
+    }
+
+    .sem-ocorrencias {
+        color:#999;
+    }
 </style>
 </head>
+
 <body>
+
 <h1>Monitoria RHEP</h1>
-<p>Atualizado em: 11/08/2026 16:00:09</p>
+<div class="atualizado">
+    Atualizado em: 11/08/2026 16:12:07
+</div>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="abrirAba(event, 'servicos')">
+        SERVIÇOS
+    </button>
+    <button class="tab-button" onclick="abrirAba(event, 'consolidacoes')">
+        CONSOLIDAÇÕES
+    </button>
+</div>
+
+<div id="servicos" class="tab-content active">
+<div class="table-container">
 <table>
 <tr>
-<th>DESTINO</th><th>SITUACAO</th><th>EXECUTANDO</th><th>EM_FILA</th></tr><tr><td>ALPF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td>Emp49 - Fol101 (08/2026) - Exec001 (TOTAL) - 17/08/2026 - 21:00:00</td></tr><tr><td>ALPFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPTHI01(1)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>Fgerson(1)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>FOSF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_ALE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_DAE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_FUN(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_GOV(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td class="has-tip">Emp1 - Fol910 (08/2026) - Exec364 (EP__FOLHA_4 - 11/08/2026 15:59:49)<div class="tooltip-content">QUANTIDADE DE VINCULOS: 1
+<th>DESTINO</th><th>SITUACAO</th><th>EXECUTANDO</th><th>EM_FILA</th></tr><tr><td>ALPF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td>Emp49 - Fol101 (08/2026) - Exec001 (TOTAL) - 17/08/2026 - 21:00:00</td></tr><tr><td>ALPFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>ALPTHI01(1)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>Fgerson(1)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>FOSF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>FOSFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_ALE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_DAE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_FUN(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_GOV(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_MPE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td class="has-tip">Emp47 - Fol910 (08/2026) - Exec030 (Fase 2 - 11/08/2026 16:09:56)<div class="tooltip-content">QUANTIDADE DE VINCULOS: 2
 -----------------------------------------------------------------------------
-CONCLUÍDA    | 11/08/2026 - 15:59:20 - 11/08/2026 - 15:59:21 | EP__FOLHA_1
-CONCLUÍDA    | 11/08/2026 - 15:59:21 - 11/08/2026 - 15:59:21 | EP__FOLHA00
-CONCLUÍDA    | 11/08/2026 - 15:59:21 - 11/08/2026 - 15:59:21 | EP__FOLHA_2
-CONCLUÍDA    | 11/08/2026 - 15:59:21 - 11/08/2026 - 15:59:21 | GERACAO ELEITOS
-CONCLUÍDA    | 11/08/2026 - 15:59:21 - 11/08/2026 - 15:59:36 | Fase 1
-CONCLUÍDA    | 11/08/2026 - 15:59:36 - 11/08/2026 - 15:59:40 | Fase 3
-CONCLUÍDA    | 11/08/2026 - 15:59:40 - 11/08/2026 - 15:59:40 | EP__FOLHA_3
-CONCLUÍDA    | 11/08/2026 - 15:59:40 - 11/08/2026 - 15:59:46 | Fase 2
-CONCLUÍDA    | 11/08/2026 - 15:59:46 - 11/08/2026 - 15:59:49 | Fase 5
-EM ANDAMENTO | 11/08/2026 - 15:59:49 -                       | EP__FOLHA_4
-</div></td><td></td></tr><tr><td>GIBF_MPE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_RSF(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TCE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJM(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBGB01(40)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>GIB1_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIB2_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td>Emp11 - Fol015 (08/2026) - Exec001 (TOTAL) - 11/08/2026 - 19:07:00</td></tr><tr><td>HOBFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr></table></body></html>
+CONCLUÍDA    | 11/08/2026 - 16:09:36 - 11/08/2026 - 16:09:36 | EP__FOLHA_1
+CONCLUÍDA    | 11/08/2026 - 16:09:36 - 11/08/2026 - 16:09:36 | GERACAO ELEITOS
+CONCLUÍDA    | 11/08/2026 - 16:09:37 - 11/08/2026 - 16:09:37 | EP__FOLHA00
+CONCLUÍDA    | 11/08/2026 - 16:09:37 - 11/08/2026 - 16:09:37 | EP__FOLHA_2
+CONCLUÍDA    | 11/08/2026 - 16:09:37 - 11/08/2026 - 16:09:52 | Fase 1
+CONCLUÍDA    | 11/08/2026 - 16:09:52 - 11/08/2026 - 16:09:56 | Fase 3
+CONCLUÍDA    | 11/08/2026 - 16:09:56 - 11/08/2026 - 16:09:56 | EP__FOLHA_3
+EM ANDAMENTO | 11/08/2026 - 16:09:56 -                       | Fase 2
+EM FILA      |                       -                       | Fase 5
+</div></td><td></td></tr><tr><td>GIBFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_RSF(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TCE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJE(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBF_TJM(12)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIBGB01(40)</td><td><span class="status-badge offline"><span class="icon">●</span>OFFLINE</span></td><td></td><td></td></tr><tr><td>GIB1_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>GIB2_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_BAL(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_B88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBF_IPE(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL00(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL01(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL02(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL03(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td>Emp11 - Fol015 (08/2026) - Exec001 (TOTAL) - 11/08/2026 - 19:07:00</td></tr><tr><td>HOBFOL11(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL23(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL24(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL88(88)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL90(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL91(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL92(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr><tr><td>HOBFOL93(44)</td><td><span class="status-badge online"><span class="icon">●</span>ONLINE</span></td><td></td><td></td></tr>
+</table>
+</div>
+</div>
+
+<div id="consolidacoes" class="tab-content">
+<div class="table-container">
+<table>
+<tr>
+<th>MES_ANO</th><th>NUMERO</th><th>EMP_CODIGO</th><th>TIPO_FOLHA</th><th>NOME</th><th>DATA_CONSOL</th><th>DATA_CREDITO</th><th>PROC_BATCH</th></tr><tr><td>01/08/2026</td><td>8</td><td>9</td><td>VALE REFEIÇÃO</td><td>VALE REFEIÇÃO</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 10:49:02 | Aviso | Arquivo Folha Batch gerado com sucesso.
+11/08/2026 10:49:02 | Aviso | Folha consolidada. Usuário: luciane-snascim
+11/08/2026 10:49:14 | Aviso | Crédito bloqueado. Usuário: luciane-snascim</div></td><td>11/08/2026</td><td></td></tr><tr><td>01/08/2026</td><td>15</td><td>5</td><td>13o RETROATIVO</td><td>13o RETROATIVO - Até 2018</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 15:14:09 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>15</td><td>6</td><td>13o RETROATIVO</td><td>13o RETROATIVO - Até 2018</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 14:25:15 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>15</td><td>7</td><td>13o RETROATIVO</td><td>13o RETROATIVO - Até 2018</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 14:25:33 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>115</td><td>5</td><td>13o RETROATIVO CC</td><td>13o RETROATIVO 2019 - Ativos</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 15:32:37 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>115</td><td>6</td><td>13o RETROATIVO CC</td><td>13o RETROATIVO 2019 - Ativos</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 14:26:03 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>115</td><td>7</td><td>13o RETROATIVO CC</td><td>13o RETROATIVO 2019 - Ativos</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 14:26:21 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>118</td><td>5</td><td>13o RESCISAO</td><td>13o RESCISAO - Ativos</td><td class="has-tip">11/08/2026<div class="tooltip-content">11/08/2026 14:59:52 | Aviso | Folha consolidada. Usuário: zeus</div></td><td></td><td></td></tr><tr><td>01/08/2026</td><td>156</td><td>2</td><td>RETROATIVOS-PODERES</td><td>RETROATIVOS-PODERES-COMP</td><td class="has-tip">10/08/2026<div class="tooltip-content">10/08/2026 17:29:24 | Aviso | Arquivo Folha Batch gerado com sucesso.
+10/08/2026 17:29:24 | Aviso | Folha consolidada. Usuário: joao-albuq
+10/08/2026 17:29:31 | Aviso | Crédito bloqueado. Usuário: joao-albuq
+10/08/2026 19:16:56 | Aviso | Gerado Crédito Bancário.</div></td><td>10/08/2026</td><td>Fim Processo Batch 10/08/2026 19:16:59</td></tr><tr><td>01/08/2026</td><td>157</td><td>2</td><td>FALECIDOS HABILITADO</td><td>FALECIDOS c/ HABILITADOS</td><td class="has-tip">10/08/2026<div class="tooltip-content">10/08/2026 17:30:18 | Aviso | Arquivo Folha Batch gerado com sucesso.
+10/08/2026 17:30:18 | Aviso | Folha consolidada. Usuário: joao-albuq
+10/08/2026 17:30:24 | Aviso | Crédito bloqueado. Usuário: joao-albuq</div></td><td>10/08/2026</td><td>Fim Processo Batch 10/08/2026 19:00:07</td></tr><tr><td>01/08/2026</td><td>158</td><td>2</td><td>HABILITADOS</td><td>HABILITADOS</td><td class="has-tip">10/08/2026<div class="tooltip-content">10/08/2026 17:30:34 | Aviso | Arquivo Folha Batch gerado com sucesso.
+10/08/2026 17:30:34 | Aviso | Folha consolidada. Usuário: joao-albuq
+10/08/2026 17:30:38 | Aviso | Crédito bloqueado. Usuário: joao-albuq
+10/08/2026 19:00:04 | Aviso | Gerado Crédito Bancário.</div></td><td>10/08/2026</td><td>Fim Processo Batch 10/08/2026 19:00:07</td></tr><tr><td>01/08/2026</td><td>2</td><td>9</td><td>RPM</td><td>1ª RPM</td><td class="has-tip">10/08/2026<div class="tooltip-content">10/08/2026 15:14:54 | Aviso | Arquivo Folha Batch gerado com sucesso.
+10/08/2026 15:14:54 | Aviso | Folha consolidada. Usuário: cristiano-jaque
+10/08/2026 15:14:58 | Aviso | Crédito bloqueado. Usuário: cristiano-jaque
+10/08/2026 19:00:04 | Aviso | Gerado Crédito Bancário.</div></td><td>10/08/2026</td><td>Fim Processo Batch 10/08/2026 19:00:07</td></tr>
+</table>
+</div>
+</div>
+
+<script>
+function abrirAba(event, nomeAba) {{
+    const conteudos = document.getElementsByClassName("tab-content");
+    const botoes = document.getElementsByClassName("tab-button");
+
+    for (let i = 0; i < conteudos.length; i++) {{
+        conteudos[i].classList.remove("active");
+    }}
+
+    for (let i = 0; i < botoes.length; i++) {{
+        botoes[i].classList.remove("active");
+    }}
+
+    document.getElementById(nomeAba).classList.add("active");
+    event.currentTarget.classList.add("active");
+}}
+</script>
+
+</body>
+</html>
