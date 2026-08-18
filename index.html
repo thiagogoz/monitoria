@@ -56,7 +56,7 @@
 </div>
 
 <h1>Monitoria RHEP</h1>
-<div class="atualizado">Atualizado em: 18/08/2026 20:00:16</div>
+<div class="atualizado">Atualizado em: 18/08/2026 20:30:17</div>
 
 <div class="tabs">
     <button class="tab-button active" onclick="abrirAba(event, 'servicos')">SERVIÇOS</button>
@@ -772,7 +772,8 @@ Tempo de execução: +000000000 00:00:00.000000000
    Empresa não gera arquivo de Empenho Partronal
 *** Término RHEFOL_BATCH - Processado OK ***
 Gerando arquivo ID_ARQ_GERADO=2471530, Veja log de processo ID_EXEC=16389004`)">Fim Processo Batch 13/08/2026 19:00:03</td></tr><tr><td>01/08/2026</td><td>101</td><td>6</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`18/08/2026 18:10:43 | Aviso | Arquivo Folha Batch gerado com sucesso.
-18/08/2026 18:10:45 | Aviso | Folha consolidada. Usuário: anette-baglioni`)">18/08/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
+18/08/2026 18:10:45 | Aviso | Folha consolidada. Usuário: anette-baglioni
+18/08/2026 20:00:36 | Aviso | Gerado Crédito Bancário.`)">18/08/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
   Id_Arq_Gerado: 2474530
   NumFolha: 101  MesAno: 08/2026  EmpCodigo:6  TipoFolha: MENSAL  DtConsol: 18/08/26
   Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
@@ -803,8 +804,129 @@ Tempo de execução: +000000000 00:00:02.000000000
     DtCred-TED: 18/08/2026    DtCred-DOC: 18/08/2026   Grupo: 05  Mídia: 1  Banco: 999
   Grupos de Crédito Gerados
   Gerando FB_Fitas.
-  FB_Fitas Geradas`)">Iniciando Processo Batch 18/08/2026 20:00:01</td></tr><tr><td>01/08/2026</td><td>101</td><td>7</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`18/08/2026 18:10:50 | Aviso | Arquivo Folha Batch gerado com sucesso.
-18/08/2026 18:10:50 | Aviso | Folha consolidada. Usuário: anette-baglioni`)">18/08/2026</td><td></td><td></td></tr><tr><td>01/08/2026</td><td>102</td><td>5</td><td>RPM</td><td>1ª RPM - Ativos</td><td class="clickable-cell" onclick="abrirModal(`13/08/2026 14:38:03 | Aviso | Arquivo Folha Batch gerado com sucesso.
+  FB_Fitas Geradas
+     FitaGerada: 41049  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - TJRS
+       CRED(Origem) - QtRegistros:       10.196   TotLiq:      143.445.651,48
+       REL(Origem) - QtRegistros:           78   TotLiq:        2.013.001,46
+       TED(Origem) - QtRegistros:          252   TotLiq:          760.877,71
+ ** Fim do Processamento Crédito Bancario
+  Processo: FECHAMENTO-CREDITO
+ *** Fechamento Credito ***
+  FitaBanco Valor Liquido:      146.219.530,65  QtFunc:       10.526
+  FB_Creditos  Valor Liquido:      146.219.530,65  QtFunc:       10.526
+  ------------------------------------
+    ARQ FitaBanco    Valor Liquido:      143.445.651,48  QtFunc:       10.196
+    ARQ FB_Creditos    Valor Liquido:      143.445.651,48  QtFunc:       10.196
+  ------------------------------------
+    Rel FitaBanco    Valor Liquido:        2.773.879,17  QtFunc:          330
+    Rel FB_Creditos    Valor Liquido:        2.773.879,17  QtFunc:          330
+  -------- Fechamento Credito OK --------
+  Gerando TXT Crédito Bancário. Empresa: 6
+   ** Gerando Arquivo_TXT. Fita: 41049
+      MesAno: 08/2026 NumFolha: 101 Midia: 1  Obs: 
+        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-TJE-BRR-GOV_F101_202608_A001.TXT
+ Sequencia do Arquivo: 2474575
+ ** Fim do Processamento Crédito Bancario - Arquivos TXT
+    Geração CCheque em Lote
+  Processo: CCHEQUE SubProcesso: 
+Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
+Início de Processamento.
+Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2474583
+Geração do CCHEQUE_CTRL_FIM.
+Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-TJE-CCHEQUE_FIM-F101-202608.FIM&quot;.
+Término Normal de Processamento.
+  Processo: AFE
+    Gerando AFE no modo ANTIGO
+    Folhas_Emp (flex_03-AFE) atualizado. 
+  Processo: RETORNO-CONSIG
+  Processo: INDENIZ-CONSIG
+  Processo: CONSIG-LISTA_ORGAOS
+  Processo: ARQUIVOS SubProcesso: RHE-LICAFAST
+  Processo: IPE
+  Processo: IPE SubProcesso: r3802p
+  Processo: PROCESSO_COMPLEMENTAR
+  Processo: SIT-FUNCIONAL
+    DtIniProc: 20/07/26  DtFimProc: 18/08/26
+  Processo: EMPENHO_PATRONAL SubProcesso: VERIFICA_EMP_PAT_AFE
+   Empresa não gera arquivo de Empenho Partronal
+*** Término RHEFOL_BATCH - Processado OK ***
+Gerando arquivo ID_ARQ_GERADO=2474575, Veja log de processo ID_EXEC=16405645
+Gerando arquivo ID_ARQ_GERADO=2474583, Veja log de processo ID_EXEC=16405656`)">Fim Processo Batch 18/08/2026 20:07:56</td></tr><tr><td>01/08/2026</td><td>101</td><td>7</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`18/08/2026 18:10:50 | Aviso | Arquivo Folha Batch gerado com sucesso.
+18/08/2026 18:10:50 | Aviso | Folha consolidada. Usuário: anette-baglioni
+18/08/2026 20:13:37 | Aviso | Gerado Crédito Bancário.`)">18/08/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
+  Id_Arq_Gerado: 2474534
+  NumFolha: 101  MesAno: 08/2026  EmpCodigo:7  TipoFolha: MENSAL  DtConsol: 18/08/26
+  Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
+  Parametros: Processo: N  SubProcesso: N  Restart: N
+  Processo: LIMITES_CLASSE
+ATUALIZA_LIMITES_CLASSE_CALC &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;   Inicio   &gt;&gt;&gt; ...
+Folha: 08/2026-101  Empresa: 07  Grupo: 
+Data e hora de início: 2026/08/18 20:13:36
+Classe Cálculo: 07_TJM
+Data e hora de fim: 2026/08/18 20:13:36
+Lidos:      109 Atualizados:         
+(Incluidos:          Alterados:         )
+Tempo de execução: +000000000 00:00:00.000000000
+... &gt;&gt;&gt;   Final   &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; ATUALIZA_LIMITES_CLASSE_CALC
+  Processo: FECHAMENTO
+  Processo: ACERTA-SETOR
+  ** FitaBanco com Setor Nulo. Tem 0 registros.
+  ** RHE_Fol_Vinculos com Setor Nulo. Tem 6 registros.
+      Alterados: 6
+  ** Rhe_Fol_Vinculos com Setor Pai. Tem 0 registros.
+  Processo: CREDITO
+ Iniciando limpeza no campo indicador da faixa salarial(flex_campo_17).
+ Efetivadas 0 alterações.
+  Gerando trhe_banco_creditos.
+    DtCred-TED: 18/08/2026    DtCred-DOC: 18/08/2026   Grupo: 01  Mídia: 1  Banco: 999
+    DtCred-TED: 18/08/2026    DtCred-DOC: 18/08/2026   Grupo: 05  Mídia: 1  Banco: 999
+  Grupos de Crédito Gerados
+  Gerando FB_Fitas.
+  FB_Fitas Geradas
+     FitaGerada: 41068  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - TJM
+       CRED(Origem) - QtRegistros:          108   TotLiq:        1.811.417,89
+       TED(Origem) - QtRegistros:            3   TotLiq:           34.741,11
+ ** Fim do Processamento Crédito Bancario
+  Processo: FECHAMENTO-CREDITO
+ *** Fechamento Credito ***
+  FitaBanco Valor Liquido:        1.846.159,00  QtFunc:          111
+  FB_Creditos  Valor Liquido:        1.846.159,00  QtFunc:          111
+  ------------------------------------
+    ARQ FitaBanco    Valor Liquido:        1.811.417,89  QtFunc:          108
+    ARQ FB_Creditos    Valor Liquido:        1.811.417,89  QtFunc:          108
+  ------------------------------------
+    Rel FitaBanco    Valor Liquido:           34.741,11  QtFunc:            3
+    Rel FB_Creditos    Valor Liquido:           34.741,11  QtFunc:            3
+  -------- Fechamento Credito OK --------
+  Gerando TXT Crédito Bancário. Empresa: 7
+   ** Gerando Arquivo_TXT. Fita: 41068
+      MesAno: 08/2026 NumFolha: 101 Midia: 1  Obs: 
+        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-TME-BRR-GOV_F101_202608_A001.TXT
+ Sequencia do Arquivo: 2474679
+ ** Fim do Processamento Crédito Bancario - Arquivos TXT
+    Geração CCheque em Lote
+  Processo: CCHEQUE SubProcesso: 
+Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
+Início de Processamento.
+Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2474683
+Geração do CCHEQUE_CTRL_FIM.
+Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-TME-CCHEQUE_FIM-F101-202608.FIM&quot;.
+Término Normal de Processamento.
+  Processo: AFE
+    Gerando AFE no modo ANTIGO
+    Folhas_Emp (flex_03-AFE) atualizado. 
+  Processo: RETORNO-CONSIG
+  Processo: INDENIZ-CONSIG
+  Processo: CONSIG-LISTA_ORGAOS
+  Processo: ARQUIVOS SubProcesso: RHE-LICAFAST
+  Processo: IPE
+  Processo: IPE SubProcesso: r3802p
+  Processo: PROCESSO_COMPLEMENTAR
+  Processo: SIT-FUNCIONAL
+    DtIniProc: 20/07/26  DtFimProc: 18/08/26
+  Processo: EMPENHO_PATRONAL SubProcesso: VERIFICA_EMP_PAT_AFE
+   Empresa não gera arquivo de Empenho Partronal
+*** Término RHEFOL_BATCH - Processado OK ***`)">Fim Processo Batch 18/08/2026 20:14:05</td></tr><tr><td>01/08/2026</td><td>102</td><td>5</td><td>RPM</td><td>1ª RPM - Ativos</td><td class="clickable-cell" onclick="abrirModal(`13/08/2026 14:38:03 | Aviso | Arquivo Folha Batch gerado com sucesso.
 13/08/2026 14:38:03 | Aviso | Folha consolidada. Usuário: jacqueline-sieg
 13/08/2026 14:38:12 | Aviso | Crédito bloqueado. Usuário: jacqueline-sieg
 13/08/2026 19:02:35 | Aviso | Gerado Crédito Bancário.`)">13/08/2026</td><td>13/08/2026</td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
@@ -1616,7 +1738,7 @@ Final de Limpeza da Tabela de LOG (RHE_Integ_Cons_Log_Atualiz). Registros Exclu�
 Lidos=681 Inseridos=60 Erros=620
 Final de Processamento.
 
-`)">6 - TJRS (TJE)</td><td style="text-align:center;"><span class="icone-status icone-verde" title="Verde">✓</span></td><td style="text-align:center;"><span class="icone-status icone-verde" title="Verde">✓</span></td><td class="col-anterior col-detalhe">24.660</td><td class="col-anterior col-detalhe">17.385.026,91</td><td class="col-anterior col-detalhe">8.869</td><td class="col-anterior col-detalhe">2.091.315,43</td><td class="col-amarelo-claro col-detalhe">24.051</td><td class="col-amarelo-claro col-detalhe">17.264.315,91</td><td class="col-amarelo-claro col-detalhe">8.889</td><td class="col-amarelo-claro col-detalhe">2.099.651,72</td><td class="col-detalhe"><span class="badge perc-verde">97.53%</span></td><td class="col-detalhe"><span class="badge perc-verde">99.3%</span></td><td class="col-detalhe"><span class="badge perc-verde">100.22%</span></td><td class="col-detalhe"><span class="badge perc-verde">100.39%</span></td></tr><tr><td class=" clickable-cell" onclick="abrirModal(`------------------------------------------------------------
+`)">6 - TJRS (TJE)</td><td style="text-align:center;"><span class="icone-status icone-verde" title="Verde">✓</span></td><td style="text-align:center;"><span class="icone-status icone-verde" title="Verde">✓</span></td><td class="col-anterior col-detalhe">24.659</td><td class="col-anterior col-detalhe">17.384.978,47</td><td class="col-anterior col-detalhe">8.869</td><td class="col-anterior col-detalhe">2.091.315,43</td><td class="col-amarelo-claro col-detalhe">24.039</td><td class="col-amarelo-claro col-detalhe">17.261.807,68</td><td class="col-amarelo-claro col-detalhe">8.889</td><td class="col-amarelo-claro col-detalhe">2.099.651,72</td><td class="col-detalhe"><span class="badge perc-verde">97.48%</span></td><td class="col-detalhe"><span class="badge perc-verde">99.29%</span></td><td class="col-detalhe"><span class="badge perc-verde">100.22%</span></td><td class="col-detalhe"><span class="badge perc-verde">100.39%</span></td></tr><tr><td class=" clickable-cell" onclick="abrirModal(`------------------------------------------------------------
 EXECUÇÃO: 07/08/2026 02:09:56
 ARQUIVO: Arquivo Para Processar: 2468190 [RHE-TME-CONSIG_CCD-00405.txt]
 ------------------------------------------------------------
