@@ -51,7 +51,7 @@
 </div>
 
 <h1>Monitoria RHEP</h1>
-<div class="atualizado">Atualizado em: 17/11/2026 19:30:18</div>
+<div class="atualizado">Atualizado em: 17/11/2026 20:00:19</div>
 
 <div class="tabs">
     <button class="tab-button active" onclick="abrirAba(event, 'servicos')">SERVIÇOS</button>
@@ -87,8 +87,136 @@ CONCLUÍDA    | 17/11/2026 - 10:43:14 - 17/11/2026 - 10:43:38 | Fase 2
 CONCLUÍDA    | 17/11/2026 - 10:43:38 - 17/11/2026 - 10:43:41 | Fase 5
 EM ANDAMENTO | 17/11/2026 - 10:43:41 -                       | EP__FOLHA_4
 `)">Emp1 - Fol910 (11/2026) - Exec547 (EP__FOLHA_4 - 17/11/2026 10:43:41)</td><td>Emp51 - Fol015 (11/2026) - Exec004 (TOTAL) - NÃO AGENDADA</td></tr></tbody></table></div><div id='consolidacoes' class='tab-content'><table id='tabela-consolidacoes'><thead><tr><th onclick="ordenarTabela('tabela-consolidacoes', 0)">MES_ANO</th><th onclick="ordenarTabela('tabela-consolidacoes', 1)">NUMERO</th><th onclick="ordenarTabela('tabela-consolidacoes', 2)">EMP_CODIGO</th><th onclick="ordenarTabela('tabela-consolidacoes', 3)">TIPO_FOLHA</th><th onclick="ordenarTabela('tabela-consolidacoes', 4)">NOME</th><th onclick="ordenarTabela('tabela-consolidacoes', 5)">DATA_CONSOL</th><th onclick="ordenarTabela('tabela-consolidacoes', 6)">DATA_CREDITO</th><th onclick="ordenarTabela('tabela-consolidacoes', 7)">PROC_BATCH</th></tr></thead><tbody><tr><td>01/11/2026</td><td>107</td><td>6</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`17/11/2026 16:24:20 | Aviso | Arquivo Folha Batch gerado com sucesso.
-17/11/2026 16:24:20 | Aviso | Folha consolidada. Usuário: zeus`)">17/11/2026</td><td></td><td></td></tr><tr><td>01/11/2026</td><td>107</td><td>7</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`17/11/2026 16:24:31 | Aviso | Arquivo Folha Batch gerado com sucesso.
-17/11/2026 16:24:31 | Aviso | Folha consolidada. Usuário: zeus`)">17/11/2026</td><td></td><td></td></tr><tr><td>01/10/2026</td><td>1</td><td>30</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`23/10/2026 18:40:49 | Aviso | Arquivo Folha Batch gerado com sucesso.
+17/11/2026 16:24:20 | Aviso | Folha consolidada. Usuário: zeus
+17/11/2026 20:00:06 | Aviso | Gerado Crédito Bancário.`)">17/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
+  Id_Arq_Gerado: 2548042
+  NumFolha: 107  MesAno: 11/2026  EmpCodigo:6  TipoFolha: MENSAL  DtConsol: 17/11/26
+  Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
+  Parametros: Processo: N  SubProcesso: N  Restart: N
+  Processo: LIMITES_CLASSE
+ATUALIZA_LIMITES_CLASSE_CALC &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;   Inicio   &gt;&gt;&gt; ...
+Folha: 11/2026-107  Empresa: 06  Grupo: 
+Data e hora de início: 2026/11/17 20:00:01
+Classe Cálculo: 06_TJRS
+Data e hora de fim: 2026/11/17 20:00:01
+Lidos:    1.122 Atualizados:         
+(Incluidos:          Alterados:         )
+Tempo de execução: +000000000 00:00:00.000000000
+... &gt;&gt;&gt;   Final   &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; ATUALIZA_LIMITES_CLASSE_CALC
+  Processo: FECHAMENTO
+  Processo: ACERTA-SETOR
+  ** FitaBanco com Setor Nulo. Tem 0 registros.
+  ** RHE_Fol_Vinculos com Setor Nulo. Tem 0 registros.
+  ** Rhe_Fol_Vinculos com Setor Pai. Tem 0 registros.
+  Processo: CREDITO
+ Iniciando limpeza no campo indicador da faixa salarial(flex_campo_17).
+ Efetivadas 0 alterações.
+  Gerando trhe_banco_creditos.
+    DtCred-TED: 17/11/2026    DtCred-DOC: 17/11/2026   Grupo: 01  Mídia: 1  Banco: 999
+    DtCred-TED: 17/11/2026    DtCred-DOC: 17/11/2026   Grupo: 05  Mídia: 1  Banco: 999
+  Grupos de Crédito Gerados
+  Gerando FB_Fitas.
+  FB_Fitas Geradas
+     FitaGerada: 42653  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - TJRS
+       CRED(Origem) - QtRegistros:        1.111   TotLiq:       43.521.621,06
+       REL(Origem) - QtRegistros:           45   TotLiq:        1.793.340,64
+       TED(Origem) - QtRegistros:           59   TotLiq:          364.457,34
+ ** Fim do Processamento Crédito Bancario
+  Processo: FECHAMENTO-CREDITO
+ *** Fechamento Credito ***
+  FitaBanco Valor Liquido:       45.679.419,04  QtFunc:        1.215
+  FB_Creditos  Valor Liquido:       45.679.419,04  QtFunc:        1.215
+  ------------------------------------
+    ARQ FitaBanco    Valor Liquido:       43.521.621,06  QtFunc:        1.111
+    ARQ FB_Creditos    Valor Liquido:       43.521.621,06  QtFunc:        1.111
+  ------------------------------------
+    Rel FitaBanco    Valor Liquido:        2.157.797,98  QtFunc:          104
+    Rel FB_Creditos    Valor Liquido:        2.157.797,98  QtFunc:          104
+  -------- Fechamento Credito OK --------
+  Gerando TXT Crédito Bancário. Empresa: 6
+   ** Gerando Arquivo_TXT. Fita: 42653
+      MesAno: 11/2026 NumFolha: 107 Midia: 1  Obs: 
+        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-TJE-BRR-NOV_F107_202611_A001.TXT
+ Sequencia do Arquivo: 2548304
+ ** Fim do Processamento Crédito Bancario - Arquivos TXT
+    Geração CCheque em Lote
+  Processo: CCHEQUE SubProcesso: 
+Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
+Início de Processamento.
+Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2548318
+Geração do CCHEQUE_CTRL_FIM.
+Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-TJE-CCHEQUE_FIM-F107-202611.FIM&quot;.
+Término Normal de Processamento.
+  Processo: AFE
+    Gerando AFE no modo ANTIGO`)">Iniciando Processo Batch 17/11/2026 20:00:01</td></tr><tr><td>01/11/2026</td><td>107</td><td>7</td><td>MENSAL</td><td>MENSAL - Ativos</td><td class="clickable-cell" onclick="abrirModal(`17/11/2026 16:24:31 | Aviso | Arquivo Folha Batch gerado com sucesso.
+17/11/2026 16:24:31 | Aviso | Folha consolidada. Usuário: zeus
+17/11/2026 20:00:02 | Aviso | Gerado Crédito Bancário.`)">17/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
+  Id_Arq_Gerado: 2548045
+  NumFolha: 107  MesAno: 11/2026  EmpCodigo:7  TipoFolha: MENSAL  DtConsol: 17/11/26
+  Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
+  Parametros: Processo: N  SubProcesso: N  Restart: N
+  Processo: LIMITES_CLASSE
+ATUALIZA_LIMITES_CLASSE_CALC &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;   Inicio   &gt;&gt;&gt; ...
+Folha: 11/2026-107  Empresa: 07  Grupo: 
+Data e hora de início: 2026/11/17 20:00:01
+Classe Cálculo: 07_TJM
+Data e hora de fim: 2026/11/17 20:00:01
+Lidos:       24 Atualizados:         
+(Incluidos:          Alterados:         )
+Tempo de execução: +000000000 00:00:00.000000000
+... &gt;&gt;&gt;   Final   &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; ATUALIZA_LIMITES_CLASSE_CALC
+  Processo: FECHAMENTO
+  Processo: ACERTA-SETOR
+  ** FitaBanco com Setor Nulo. Tem 0 registros.
+  ** RHE_Fol_Vinculos com Setor Nulo. Tem 0 registros.
+  ** Rhe_Fol_Vinculos com Setor Pai. Tem 0 registros.
+  Processo: CREDITO
+ Iniciando limpeza no campo indicador da faixa salarial(flex_campo_17).
+ Efetivadas 0 alterações.
+  Gerando trhe_banco_creditos.
+    DtCred-TED: 17/11/2026    DtCred-DOC: 17/11/2026   Grupo: 01  Mídia: 1  Banco: 999
+    DtCred-TED: 17/11/2026    DtCred-DOC: 17/11/2026   Grupo: 05  Mídia: 1  Banco: 999
+  Grupos de Crédito Gerados
+  Gerando FB_Fitas.
+  FB_Fitas Geradas
+     FitaGerada: 42652  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - TJM
+       CRED(Origem) - QtRegistros:           25   TotLiq:          858.811,74
+       TED(Origem) - QtRegistros:            1   TotLiq:            6.371,00
+ ** Fim do Processamento Crédito Bancario
+  Processo: FECHAMENTO-CREDITO
+ *** Fechamento Credito ***
+  FitaBanco Valor Liquido:          865.182,74  QtFunc:           26
+  FB_Creditos  Valor Liquido:          865.182,74  QtFunc:           26
+  ------------------------------------
+    ARQ FitaBanco    Valor Liquido:          858.811,74  QtFunc:           25
+    ARQ FB_Creditos    Valor Liquido:          858.811,74  QtFunc:           25
+  ------------------------------------
+    Rel FitaBanco    Valor Liquido:            6.371,00  QtFunc:            1
+    Rel FB_Creditos    Valor Liquido:            6.371,00  QtFunc:            1
+  -------- Fechamento Credito OK --------
+  Gerando TXT Crédito Bancário. Empresa: 7
+   ** Gerando Arquivo_TXT. Fita: 42652
+      MesAno: 11/2026 NumFolha: 107 Midia: 1  Obs: 
+        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-TME-BRR-NOV_F107_202611_A001.TXT
+ Sequencia do Arquivo: 2548295
+ ** Fim do Processamento Crédito Bancario - Arquivos TXT
+    Geração CCheque em Lote
+  Processo: CCHEQUE SubProcesso: 
+Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
+Início de Processamento.
+Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2548303
+Geração do CCHEQUE_CTRL_FIM.
+Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-TME-CCHEQUE_FIM-F107-202611.FIM&quot;.
+Término Normal de Processamento.
+  Processo: AFE
+    Gerando AFE no modo ANTIGO
+    Folhas_Emp (flex_03-AFE) atualizado. 
+  Processo: RETORNO-CONSIG
+  Processo: INDENIZ-CONSIG
+  Processo: ARQUIVOS SubProcesso: RHE-LICAFAST
+  Processo: IPE
+Gerando arquivo ID_ARQ_GERADO=2548295, Veja log de processo ID_EXEC=16777114
+Gerando arquivo ID_ARQ_GERADO=2548303, Veja log de processo ID_EXEC=16777119`)">Iniciando Processo Batch 17/11/2026 20:00:01</td></tr><tr><td>01/10/2026</td><td>1</td><td>30</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`23/10/2026 18:40:49 | Aviso | Arquivo Folha Batch gerado com sucesso.
 23/10/2026 18:40:49 | Aviso | Folha consolidada. Usuário: zeus
 23/10/2026 19:02:08 | Aviso | Gerado Crédito Bancário.
 27/10/2026 10:25:50 | Aviso | Crédito bloqueado. Usuário: lucas-magalhaes`)">23/10/2026</td><td>09/11/2026</td><td>Fim Processo Batch 23/10/2026 19:02:39</td></tr><tr><td>01/10/2026</td><td>1</td><td>21</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`23/10/2026 18:40:10 | Aviso | Arquivo Folha Batch gerado com sucesso.
