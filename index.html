@@ -51,7 +51,7 @@
 </div>
 
 <h1>Monitoria RHEP</h1>
-<div class="atualizado">Atualizado em: 24/11/2026 22:30:21</div>
+<div class="atualizado">Atualizado em: 24/11/2026 23:00:24</div>
 
 <div class="tabs">
     <button class="tab-button active" onclick="abrirAba(event, 'servicos')">SERVIÇOS</button>
@@ -380,7 +380,84 @@ Término Normal de Processamento.
    Empresa não gera arquivo de Empenho Partronal
 *** Término RHEFOL_BATCH - Processado OK ***
 Gerando arquivo ID_ARQ_GERADO=2552684, Veja log de processo ID_EXEC=16803441
-Gerando arquivo ID_ARQ_GERADO=2552682, Veja log de processo ID_EXEC=16803588`)">Fim Processo Batch 24/11/2026 19:02:27</td></tr><tr><td>01/11/2026</td><td>1</td><td>8</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 18:36:49 | Aviso | Arquivo Folha Batch gerado com sucesso.
+Gerando arquivo ID_ARQ_GERADO=2552682, Veja log de processo ID_EXEC=16803588`)">Fim Processo Batch 24/11/2026 19:02:27</td></tr><tr><td>01/11/2026</td><td>1</td><td>52</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 13:28:15 | Aviso | Arquivo Folha Batch gerado com sucesso.
+24/11/2026 13:28:16 | Aviso | Folha consolidada. Usuário: zeus
+24/11/2026 19:01:50 | Aviso | Gerado Crédito Bancário.`)">24/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
+  Id_Arq_Gerado: 2552184
+  NumFolha: 1  MesAno: 11/2026  EmpCodigo:52  TipoFolha: MENSAL  DtConsol: 24/11/26
+  Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
+  Parametros: Processo: N  SubProcesso: N  Restart: N
+  Processo: LIMITES_CLASSE
+ATUALIZA_LIMITES_CLASSE_CALC &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;   Inicio   &gt;&gt;&gt; ...
+Folha: 11/2026-001  Empresa: 52  Grupo: 
+Data e hora de início: 2026/11/24 19:01:49
+Classe Cálculo: 52_IPE_SAUDE
+Data e hora de fim: 2026/11/24 19:01:49
+Lidos:      207 Atualizados:        5
+(Incluidos:        2 Alterados:        3)
+Tempo de execução: +000000000 00:00:00.000000000
+... &gt;&gt;&gt;   Final   &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; ATUALIZA_LIMITES_CLASSE_CALC
+  Processo: FECHAMENTO
+  Processo: ACERTA-SETOR
+  ** FitaBanco com Setor Nulo. Tem 0 registros.
+  ** RHE_Fol_Vinculos com Setor Nulo. Tem 2 registros.
+      Alterados: 2
+  ** Rhe_Fol_Vinculos com Setor Pai. Tem 0 registros.
+  Processo: CREDITO
+ Iniciando limpeza no campo indicador da faixa salarial(flex_campo_17).
+ Efetivadas 0 alterações.
+  Gerando trhe_banco_creditos.
+    DtCred-TED: 24/11/2026    DtCred-DOC: 24/11/2026   Grupo: 05  Mídia: 1  Banco: 999
+  Grupos de Crédito Gerados
+  Gerando FB_Fitas.
+  FB_Fitas Geradas
+     FitaGerada: 42765  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - IPE_SAUDE
+       CRED(Origem) - QtRegistros:          206   TotLiq:        1.171.019,96
+       TED(Origem) - QtRegistros:            3   TotLiq:            3.973,74
+ ** Fim do Processamento Crédito Bancario
+  Processo: FECHAMENTO-CREDITO
+ *** Fechamento Credito ***
+  FitaBanco Valor Liquido:        1.174.993,70  QtFunc:          209
+  FB_Creditos  Valor Liquido:        1.174.993,70  QtFunc:          209
+  ------------------------------------
+    ARQ FitaBanco    Valor Liquido:        1.171.019,96  QtFunc:          206
+    ARQ FB_Creditos    Valor Liquido:        1.171.019,96  QtFunc:          206
+  ------------------------------------
+    Rel FitaBanco    Valor Liquido:            3.973,74  QtFunc:            3
+    Rel FB_Creditos    Valor Liquido:            3.973,74  QtFunc:            3
+  -------- Fechamento Credito OK --------
+  Gerando TXT Crédito Bancário. Empresa: 52
+   ** Gerando Arquivo_TXT. Fita: 42765
+      MesAno: 11/2026 NumFolha: 1 Midia: 1  Obs: 
+        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-IPS-BRR-GOV_F001_202611_A001.TXT
+ Sequencia do Arquivo: 2552603
+ ** Fim do Processamento Crédito Bancario - Arquivos TXT
+    Geração CCheque em Lote
+  Processo: CCHEQUE SubProcesso: 
+Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
+Início de Processamento.
+Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2552611
+Geração do CCHEQUE_CTRL_FIM.
+Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-IPS-CCHEQUE_FIM-F001-202611.FIM&quot;.
+Término Normal de Processamento.
+  Processo: AFE
+    Gerando AFE no modo NOVO
+    Folhas_Emp (flex_03-AFE) atualizado. 
+  Processo: RETORNO-CONSIG
+  Processo: INDENIZ-CONSIG
+  Processo: CONSIG-LISTA_ORGAOS
+  Processo: CONSIG-INTEG
+  Processo: ARQUIVOS SubProcesso: RHE-LICAFAST
+  Processo: IPE
+  Processo: IPE SubProcesso: r3802p
+  Processo: PROCESSO_COMPLEMENTAR
+  Processo: SIT-FUNCIONAL
+    DtIniProc: 20/10/26  DtFimProc: 24/11/26
+  Processo: EMPENHO_PATRONAL SubProcesso: VERIFICA_EMP_PAT_AFE
+   Empresa não gera arquivo de Empenho Partronal
+*** Término RHEFOL_BATCH - Processado OK ***
+Gerando arquivo ID_ARQ_GERADO=2552611, Veja log de processo ID_EXEC=16803358
+Gerando arquivo ID_ARQ_GERADO=2552603, Veja log de processo ID_EXEC=16803568`)">Fim Processo Batch 24/11/2026 19:02:17</td></tr><tr><td>01/11/2026</td><td>1</td><td>8</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 18:36:49 | Aviso | Arquivo Folha Batch gerado com sucesso.
 24/11/2026 18:36:49 | Aviso | Folha consolidada. Usuário: zeus
 24/11/2026 19:02:10 | Aviso | Gerado Crédito Bancário.`)">24/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
   Id_Arq_Gerado: 2552368
@@ -460,84 +537,7 @@ Término Normal de Processamento.
    Empresa não gera arquivo de Empenho Partronal
 *** Término RHEFOL_BATCH - Processado OK ***
 Gerando arquivo ID_ARQ_GERADO=2552657, Veja log de processo ID_EXEC=16803618
-Gerando arquivo ID_ARQ_GERADO=2552660, Veja log de processo ID_EXEC=16803402`)">Fim Processo Batch 24/11/2026 19:02:17</td></tr><tr><td>01/11/2026</td><td>1</td><td>52</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 13:28:15 | Aviso | Arquivo Folha Batch gerado com sucesso.
-24/11/2026 13:28:16 | Aviso | Folha consolidada. Usuário: zeus
-24/11/2026 19:01:50 | Aviso | Gerado Crédito Bancário.`)">24/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
-  Id_Arq_Gerado: 2552184
-  NumFolha: 1  MesAno: 11/2026  EmpCodigo:52  TipoFolha: MENSAL  DtConsol: 24/11/26
-  Gerar CCheque: S  Gerar AFE: S  Gerar IPE: S
-  Parametros: Processo: N  SubProcesso: N  Restart: N
-  Processo: LIMITES_CLASSE
-ATUALIZA_LIMITES_CLASSE_CALC &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;   Inicio   &gt;&gt;&gt; ...
-Folha: 11/2026-001  Empresa: 52  Grupo: 
-Data e hora de início: 2026/11/24 19:01:49
-Classe Cálculo: 52_IPE_SAUDE
-Data e hora de fim: 2026/11/24 19:01:49
-Lidos:      207 Atualizados:        5
-(Incluidos:        2 Alterados:        3)
-Tempo de execução: +000000000 00:00:00.000000000
-... &gt;&gt;&gt;   Final   &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; ATUALIZA_LIMITES_CLASSE_CALC
-  Processo: FECHAMENTO
-  Processo: ACERTA-SETOR
-  ** FitaBanco com Setor Nulo. Tem 0 registros.
-  ** RHE_Fol_Vinculos com Setor Nulo. Tem 2 registros.
-      Alterados: 2
-  ** Rhe_Fol_Vinculos com Setor Pai. Tem 0 registros.
-  Processo: CREDITO
- Iniciando limpeza no campo indicador da faixa salarial(flex_campo_17).
- Efetivadas 0 alterações.
-  Gerando trhe_banco_creditos.
-    DtCred-TED: 24/11/2026    DtCred-DOC: 24/11/2026   Grupo: 05  Mídia: 1  Banco: 999
-  Grupos de Crédito Gerados
-  Gerando FB_Fitas.
-  FB_Fitas Geradas
-     FitaGerada: 42765  Id_Midia: 1  Obs: Arquivo Créditos Outros Bancos - IPE_SAUDE
-       CRED(Origem) - QtRegistros:          206   TotLiq:        1.171.019,96
-       TED(Origem) - QtRegistros:            3   TotLiq:            3.973,74
- ** Fim do Processamento Crédito Bancario
-  Processo: FECHAMENTO-CREDITO
- *** Fechamento Credito ***
-  FitaBanco Valor Liquido:        1.174.993,70  QtFunc:          209
-  FB_Creditos  Valor Liquido:        1.174.993,70  QtFunc:          209
-  ------------------------------------
-    ARQ FitaBanco    Valor Liquido:        1.171.019,96  QtFunc:          206
-    ARQ FB_Creditos    Valor Liquido:        1.171.019,96  QtFunc:          206
-  ------------------------------------
-    Rel FitaBanco    Valor Liquido:            3.973,74  QtFunc:            3
-    Rel FB_Creditos    Valor Liquido:            3.973,74  QtFunc:            3
-  -------- Fechamento Credito OK --------
-  Gerando TXT Crédito Bancário. Empresa: 52
-   ** Gerando Arquivo_TXT. Fita: 42765
-      MesAno: 11/2026 NumFolha: 1 Midia: 1  Obs: 
-        Nome do Arquivo: UTL_FILE_DIR_RHE_SAIDAS\RHE-IPS-BRR-GOV_F001_202611_A001.TXT
- Sequencia do Arquivo: 2552603
- ** Fim do Processamento Crédito Bancario - Arquivos TXT
-    Geração CCheque em Lote
-  Processo: CCHEQUE SubProcesso: 
-Processo: CCHEQUE SubProcesso:  ** Gerando Arquivo de Controle de FIM.
-Início de Processamento.
-Número de identificação do processo de geração do arquivo &quot;CCHEQUE_CTRL_FIM&quot;: 2552611
-Geração do CCHEQUE_CTRL_FIM.
-Marcando o processo como disponível para geração física do arquivo &quot;UTL_FILE_DIR_RHE_SAIDAS\RHE-IPS-CCHEQUE_FIM-F001-202611.FIM&quot;.
-Término Normal de Processamento.
-  Processo: AFE
-    Gerando AFE no modo NOVO
-    Folhas_Emp (flex_03-AFE) atualizado. 
-  Processo: RETORNO-CONSIG
-  Processo: INDENIZ-CONSIG
-  Processo: CONSIG-LISTA_ORGAOS
-  Processo: CONSIG-INTEG
-  Processo: ARQUIVOS SubProcesso: RHE-LICAFAST
-  Processo: IPE
-  Processo: IPE SubProcesso: r3802p
-  Processo: PROCESSO_COMPLEMENTAR
-  Processo: SIT-FUNCIONAL
-    DtIniProc: 20/10/26  DtFimProc: 24/11/26
-  Processo: EMPENHO_PATRONAL SubProcesso: VERIFICA_EMP_PAT_AFE
-   Empresa não gera arquivo de Empenho Partronal
-*** Término RHEFOL_BATCH - Processado OK ***
-Gerando arquivo ID_ARQ_GERADO=2552611, Veja log de processo ID_EXEC=16803358
-Gerando arquivo ID_ARQ_GERADO=2552603, Veja log de processo ID_EXEC=16803568`)">Fim Processo Batch 24/11/2026 19:02:17</td></tr><tr><td>01/11/2026</td><td>1</td><td>31</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 18:38:29 | Aviso | Arquivo Folha Batch gerado com sucesso.
+Gerando arquivo ID_ARQ_GERADO=2552660, Veja log de processo ID_EXEC=16803402`)">Fim Processo Batch 24/11/2026 19:02:17</td></tr><tr><td>01/11/2026</td><td>1</td><td>31</td><td>MENSAL</td><td>MENSAL</td><td class="clickable-cell" onclick="abrirModal(`24/11/2026 18:38:29 | Aviso | Arquivo Folha Batch gerado com sucesso.
 24/11/2026 18:38:29 | Aviso | Folha consolidada. Usuário: zeus
 24/11/2026 19:02:12 | Aviso | Gerado Crédito Bancário.`)">24/11/2026</td><td></td><td class="clickable-cell" onclick="abrirModal(`Início Processamento: Folha Batch.
   Id_Arq_Gerado: 2552396
